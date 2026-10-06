@@ -1,0 +1,23 @@
+{
+	"name": "mikelmade/mminteractive",
+	"type": "typo3-cms-extension",
+	"description": "Backend WYSIWYG editor to upload images and define linked, styleable imagemap areas (rect/circle/polygon) with normal/hover/active states.",
+	"license": "GPL-2.0-or-later",
+	"require": {
+		"typo3/cms-core": "^14.3",
+		"typo3/cms-extbase": "^14.3",
+		"typo3/cms-fluid": "^14.3",
+		"typo3/cms-backend": "^14.3",
+		"typo3/cms-frontend": "^14.3"
+	},
+	"autoload": {
+		"psr-4": {
+			"Mikelmade\\Mminteractive\\": "Classes/"
+		}
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "mminteractive"
+		}
+	}
+}

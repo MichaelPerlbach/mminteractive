@@ -1,0 +1,46 @@
+/*
+ * Makes the imagemap scale fluidly with its container instead of staying
+ * at the uploaded image's native pixel size. Because the SVG uses a
+ * viewBox matching the original image dimensions, every shape (position,
+ * border width, background pattern) scales proportionally along with it -
+ * no JavaScript or recalculation needed on resize.
+ */
+.tx-mminteractive {
+	box-sizing: border-box; /* an optional border around the image counts towards the max-width */
+	width: 100%;
+	line-height: 0; /* avoid a stray gap below the inline svg */
+}
+
+.tx-mminteractive__svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+}
+
+.imagemap-area {
+	outline: none;
+}
+
+/* Visible, accessible focus state for keyboard navigation (mirrors the hover style). */
+.imagemap-area:focus-visible {
+	outline: 2px solid #1d4ed8;
+	outline-offset: 2px;
+}
+
+/* Custom per-area tooltip (Classes/ViewHelpers/AreaViewHelper.php + Resources/Public/JavaScript/frontend-tooltip.js) */
+.mm-tooltip {
+	position: fixed;
+	z-index: 2147483647;
+	pointer-events: none;
+	box-sizing: border-box;
+	max-width: 280px;
+	font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	color: #fff;
+	white-space: normal;
+	overflow-wrap: break-word;
+}
+.mm-tooltip table { border-collapse: collapse; margin: 4px 0; max-width: 100%; }
+.mm-tooltip td, .mm-tooltip th { border: 1px solid rgba(255, 255, 255, 0.4); padding: 4px 6px; }
+.mm-tooltip img { max-width: 100%; height: auto; vertical-align: middle; }
+.mm-tooltip h1, .mm-tooltip h2, .mm-tooltip h3, .mm-tooltip h4 { margin: 4px 0; line-height: 1.2; }

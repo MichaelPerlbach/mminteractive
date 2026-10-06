@@ -1,0 +1,166 @@
+.mm-ime { max-width: 980px; }
+.mm-ime__imagebar { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.mm-ime__status { min-height: 1.6em; font-size: 12px; color: #2e7d32; margin: 6px 0; }
+.mm-ime__status--error { color: #b71c1c; font-weight: 700; }
+.mm-ime__draft { fill: rgba(29, 78, 216, 0.12); stroke: #1d4ed8; stroke-width: 1.5; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+.mm-ime__bg { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.mm-ime__thumb { width: 44px; height: 44px; object-fit: cover; border: 1px solid #cdcfd5; background: #fff; }
+.mm-ime__linkrow { margin: 12px 0 4px; }
+.mm-ime__nativelink { max-width: 640px; }
+.mm-ime__toolbar { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 8px; }
+.mm-ime__preview { margin-left: auto; display: inline-flex; gap: 4px; align-items: center; }
+.mm-ime__hint { font-size: 12px; color: #666; margin-bottom: 6px; min-height: 2.8em; } /* reserve space so the canvas does not jump when the hint text changes */
+.mm-ime__warning { background: #fff3cd; border: 1px solid #ffe69c; padding: 8px 12px; margin-bottom: 8px; }
+.mm-ime__canvas { border: 1px solid #cdcfd5; background: #f4f4f4; }
+.mm-ime__svg { display: block; width: 100%; height: auto; touch-action: none; user-select: none; outline: none; overflow: visible; }
+.mm-ime__svg:focus-visible { outline: 2px solid #1d4ed8; outline-offset: 2px; }
+.mm-ime__shape { cursor: move; }
+.mm-ime__svg.is-drawing, .mm-ime__svg.is-drawing * { cursor: crosshair; }
+.mm-ime__outline { stroke: #1d4ed8; stroke-width: 2; stroke-dasharray: 6 3; vector-effect: non-scaling-stroke; }
+.mm-ime__handle { fill: #fff; stroke: #1d4ed8; stroke-width: 1.5; vector-effect: non-scaling-stroke; cursor: pointer; }
+.mm-ime__list { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 10px 0; }
+.mm-ime__panel { border: 1px solid #cdcfd5; padding: 12px; margin-top: 8px; }
+.mm-ime__general, .mm-ime__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; }
+.mm-ime__row { display: flex; flex-direction: column; gap: 4px; margin: 0; }
+.mm-ime__label { font-weight: 700; font-size: 12px; }
+.mm-ime__color { display: flex; gap: 6px; }
+.mm-ime__color input[type="color"] { width: 44px; padding: 2px; flex: none; }
+.mm-ime__muted { color: #777; }
+.mm-ime__state, .mm-ime__tooltip-box { margin-top: 10px; border-top: 1px solid #e5e5e5; padding-top: 8px; }
+.mm-ime__state > summary, .mm-ime__tooltip-box > summary { cursor: pointer; font-weight: 700; margin-bottom: 8px; }
+.mm-ime__tooltip-box { background: #f7f9ff; margin-left: -12px; margin-right: -12px; padding-left: 12px; padding-right: 12px; }
+.mm-ime__marquee { fill: rgba(29, 78, 216, 0.10); stroke: #1d4ed8; stroke-width: 1; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; pointer-events: none; }
+.mm-ime__color input[type="text"] { min-width: 0; flex: 1; }
+
+/* Backend module list */
+.mminteractive-thumb {
+  width: 48px;
+  height: 36px;
+  object-fit: cover;
+  border: 1px solid #cdcfd5;
+  background: #fff;
+  display: block;
+}
+.col-icon {
+  width: 56px;
+}
+
+/* Background-image placement options */
+.mm-ime__image-options { margin-top: 8px; padding-top: 8px; border-top: 1px dashed #e5e5e5; }
+.mm-ime__checkbox-row { flex-direction: row !important; align-items: center; gap: 6px; }
+.mm-ime__checkbox-row input[type="checkbox"] { margin: 0; }
+.mm-ime__dimension { display: flex; gap: 6px; }
+.mm-ime__dimension input[type="number"] { flex: 1; min-width: 0; }
+.mm-ime__dimension select { flex: none; width: 60px; }
+
+/* Rotation handle */
+.mm-ime__rotate-line { stroke: #1d4ed8; stroke-width: 1; stroke-dasharray: 3 2; vector-effect: non-scaling-stroke; pointer-events: none; }
+.mm-ime__rotate-handle { fill: #fff; stroke: #1d4ed8; stroke-width: 1.5; vector-effect: non-scaling-stroke; cursor: grab; }
+.mm-ime__rotate-handle:active { cursor: grabbing; }
+
+/* Live canvas hover preview of the tooltip (frontend-identical positioning) */
+.mm-ime__canvas-tooltip {
+  position: fixed;
+  z-index: 100000;
+  pointer-events: none;
+  box-sizing: border-box;
+  max-width: 280px;
+  font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: #fff;
+  white-space: normal;
+  overflow-wrap: break-word;
+  display: none;
+}
+
+/* Tooltip rich-text editor */
+.mm-ime__rte { position: relative; border: 1px solid #cdcfd5; background: #fff; }
+.mm-ime__rte-toolbar { display: flex; gap: 4px; padding: 4px; border-bottom: 1px solid #e5e5e5; background: #f8f8f8; }
+.mm-ime__rte-toolbar button { min-width: 32px; font-weight: 700; }
+.mm-ime__rte-editable { position: relative; min-height: 60px; padding: 8px; outline: none; }
+.mm-ime__rte-editable:focus { box-shadow: inset 0 0 0 2px #1d4ed8; }
+.mm-ime__rte-editable a { color: #1d4ed8; }
+
+/* Tooltip RTE: extended toolbar (format/font selects, color picker, image/table/source buttons) */
+.mm-ime__rte-toolbar { flex-wrap: wrap; align-items: center; }
+.mm-ime__rte-select { width: auto; flex: none; max-width: 120px; }
+.mm-ime__rte-color { width: 32px; height: 30px; padding: 2px; border: 1px solid #cdcfd5; background: #fff; cursor: pointer; }
+.mm-ime__rte-toolbar button.active { background: #1d4ed8; color: #fff; }
+.mm-ime__rte-source { width: 100%; min-height: 100px; font-family: monospace; font-size: 12px; border: none; resize: vertical; }
+
+/* Rich content rendering (editable area + canvas hover preview) - tables/images get the same
+   presentation everywhere they can appear, matching the frontend's .mm-tooltip rules below. */
+.mm-ime__rte-editable table, .mm-ime__canvas-tooltip table {
+  border-collapse: collapse; margin: 4px 0;
+}
+.mm-ime__rte-editable td, .mm-ime__rte-editable th,
+.mm-ime__canvas-tooltip td, .mm-ime__canvas-tooltip th {
+  border: 1px solid #999; padding: 4px 6px;
+}
+.mm-ime__rte-editable img, .mm-ime__canvas-tooltip img {
+  max-width: 100%; height: auto; vertical-align: middle;
+}
+.mm-ime__rte-editable h1, .mm-ime__rte-editable h2, .mm-ime__rte-editable h3, .mm-ime__rte-editable h4,
+.mm-ime__canvas-tooltip h1, .mm-ime__canvas-tooltip h2, .mm-ime__canvas-tooltip h3, .mm-ime__canvas-tooltip h4 {
+  margin: 4px 0; line-height: 1.2;
+}
+
+.mm-ime__rte-iconbtn { display: inline-flex; align-items: center; justify-content: center; }
+.mm-ime__rte-iconbtn svg { display: block; }
+
+/* Table right-click context menu */
+.mm-ime__table-menu {
+  position: fixed;
+  z-index: 200000;
+  background: #fff;
+  border: 1px solid #cdcfd5;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  width: 220px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.mm-ime__table-menu-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.mm-ime__table-menu-header button { min-width: 28px; }
+.mm-ime__table-menu .mm-ime__row { margin-bottom: 6px; }
+.mm-ime__table-menu .mm-ime__label { display: block; font-size: 12px; margin-bottom: 2px; }
+
+/* Draggable/resizable images in the tooltip RTE */
+.mm-ime__rte-editable img { cursor: move; }
+.mm-ime__img-handles { position: absolute; top: 0; left: 0; pointer-events: none; }
+.mm-ime__img-handle {
+  position: absolute;
+  width: 9px; height: 9px;
+  background: #fff;
+  border: 1.5px solid #1d4ed8;
+  box-sizing: border-box;
+  pointer-events: all;
+}
+.mm-ime__img-handle[data-corner="nw"], .mm-ime__img-handle[data-corner="se"] { cursor: nwse-resize; }
+.mm-ime__img-handle[data-corner="ne"], .mm-ime__img-handle[data-corner="sw"] { cursor: nesw-resize; }
+
+.mm-ime__own-style { width: 100%; margin-top: 6px; font-family: monospace; font-size: 12px; resize: vertical; }
+
+/* Imagemap-wide border around the image */
+.mm-ime__borderbar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 10px; }
+.mm-ime__inline { display: inline-flex; align-items: center; gap: 6px; margin: 0; font-weight: normal; }
+.mm-ime__borderwidth { width: 70px; }
+.mm-ime__imageframe { box-sizing: border-box; }
+.mm-ime__borderstyle { width: auto; flex: none; max-width: 150px; }
+.mm-ime__bordercolor { width: 32px; height: 30px; padding: 2px; border: 1px solid #cdcfd5; background: #fff; cursor: pointer; }
+
+/* Link for the whole image (directly below the image) */
+.mm-ime__imagelink { margin: 10px 0 6px; }
+.mm-ime__imagelinkrow { margin: 8px 0 4px; }
+
+/* Never show the raw JSON field or the not-yet-moved link fields, not even before the editor script has run */
+mm-imagemap-editor > [hidden] { display: none !important; }
+
+/* "Image" accordion: replace image, alt text, link, border, image info */
+.mm-ime__imagetab { margin-bottom: 12px; padding: 8px 12px; border: 1px solid #cdcfd5; background: #fafafa; }
+.mm-ime__imagetab > summary { cursor: pointer; font-weight: 700; margin-bottom: 6px; }
+.mm-ime__imagesection, .mm-ime__imagetab .mm-ime__imagelink, .mm-ime__imagetab .mm-ime__borderbar { margin: 0; padding: 10px 0; border-top: 1px solid #e5e5e5; }
+.mm-ime__imagesection > strong, .mm-ime__imagelink > strong { display: block; margin-bottom: 6px; }
+.mm-ime__borderbar > strong { margin-right: 4px; }
+.mm-ime__imageinfo .mm-ime__infoline { line-height: 1.6; }
+.mm-ime__imagealt { width: 100%; }

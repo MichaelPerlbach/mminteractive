@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2026-09-28" product-name="mminteractive">
+		<body>
+			<trans-unit id="plugin.title"><target>MM Interactive – Imagemap</target></trans-unit>
+			<trans-unit id="plugin.description"><target>Gibt ein hochgeladenes Bild mit klickbaren, gestaltbaren verlinkten Bereichen aus (Rechteck/Kreis/Polygon/Freihand).</target></trans-unit>
+			<trans-unit id="tt_content.map"><target>Imagemap</target></trans-unit>
+			<trans-unit id="tx_mminteractive_domain_model_imagemap.title"><target>Titel</target></trans-unit>
+			<trans-unit id="tx_mminteractive_domain_model_imagemap.areas"><target>Bild und Bereiche</target></trans-unit>
+			<trans-unit id="tt_content.placement"><target>Position im Dokument</target></trans-unit>
+			<trans-unit id="tt_content.position"><target>Positionierung</target></trans-unit>
+			<trans-unit id="tt_content.position.relative"><target>Relativ (Standard, im Textfluss)</target></trans-unit>
+			<trans-unit id="tt_content.position.absolute"><target>Absolut</target></trans-unit>
+			<trans-unit id="tt_content.position.fixed"><target>Fixed (am Bildschirm fixiert)</target></trans-unit>
+			<trans-unit id="tt_content.x"><target>X-Position (von links)</target></trans-unit>
+			<trans-unit id="tt_content.x_unit"><target>Einheit X</target></trans-unit>
+			<trans-unit id="tt_content.y"><target>Y-Position (von oben)</target></trans-unit>
+			<trans-unit id="tt_content.y_unit"><target>Einheit Y</target></trans-unit>
+			<trans-unit id="tt_content.margin_top"><target>Abstand nach oben (px)</target></trans-unit>
+			<trans-unit id="tt_content.margin_bottom"><target>Abstand nach unten (px)</target></trans-unit>
+			<trans-unit id="tabs.plugin"><target>Imagemap</target></trans-unit>
+		</body>
+	</file>
+</xliff>

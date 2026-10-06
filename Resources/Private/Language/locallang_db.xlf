@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2026-09-28" product-name="mminteractive">
+		<body>
+			<trans-unit id="plugin.title"><source>MM Interactive – Imagemap</source></trans-unit>
+			<trans-unit id="plugin.description"><source>Renders an uploaded image with clickable, styleable linked areas (rectangle/circle/polygon/freeform).</source></trans-unit>
+			<trans-unit id="tt_content.map"><source>Imagemap</source></trans-unit>
+			<trans-unit id="tx_mminteractive_domain_model_imagemap.title"><source>Title</source></trans-unit>
+			<trans-unit id="tx_mminteractive_domain_model_imagemap.areas"><source>Image and areas</source></trans-unit>
+			<trans-unit id="tt_content.placement"><source>Position in the document</source></trans-unit>
+			<trans-unit id="tt_content.position"><source>Positioning</source></trans-unit>
+			<trans-unit id="tt_content.position.relative"><source>Relative (default, in the document flow)</source></trans-unit>
+			<trans-unit id="tt_content.position.absolute"><source>Absolute</source></trans-unit>
+			<trans-unit id="tt_content.position.fixed"><source>Fixed (stays on screen)</source></trans-unit>
+			<trans-unit id="tt_content.x"><source>X position (from the left)</source></trans-unit>
+			<trans-unit id="tt_content.x_unit"><source>Unit X</source></trans-unit>
+			<trans-unit id="tt_content.y"><source>Y position (from the top)</source></trans-unit>
+			<trans-unit id="tt_content.y_unit"><source>Unit Y</source></trans-unit>
+			<trans-unit id="tt_content.margin_top"><source>Space above (px)</source></trans-unit>
+			<trans-unit id="tt_content.margin_bottom"><source>Space below (px)</source></trans-unit>
+			<trans-unit id="tabs.plugin"><source>Imagemap</source></trans-unit>
+		</body>
+	</file>
+</xliff>

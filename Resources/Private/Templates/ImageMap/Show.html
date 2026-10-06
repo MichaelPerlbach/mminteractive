@@ -1,0 +1,30 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      xmlns:imagemap="http://typo3.org/ns/Mikelmade/Mminteractive/ViewHelpers"
+      data-namespace-typo3-fluid="true">
+
+<f:if condition="{imageMap} && {imageUrl}">
+	<f:then>
+		<f:asset.css identifier="mminteractive-frontend" href="EXT:mminteractive/Resources/Public/Css/frontend.css" />
+		<div class="tx-mminteractive" style="max-width: {imageWidth}px; {placementCss} {imageBorderCss}">
+			<svg
+				class="tx-mminteractive__svg"
+				viewBox="0 0 {imageWidth} {imageHeight}"
+				preserveAspectRatio="xMidYMid meet"
+				role="img"
+				aria-label="{imageAlt}"
+			>
+				<imagemap:imageLink link="{imageLink}" label="{imageAlt}">
+					<image href="{imageUrl}" x="0" y="0" width="{imageWidth}" height="{imageHeight}" />
+				</imagemap:imageLink>
+				<f:for each="{areas}" as="area" iteration="it">
+					<imagemap:area area="{area}" index="{it.index}" />
+				</f:for>
+			</svg>
+		</div>
+	</f:then>
+	<f:else>
+		<!-- mminteractive: nothing rendered ({debugReason}) -->
+	</f:else>
+</f:if>
+
+</html>
