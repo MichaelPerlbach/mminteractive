@@ -30,17 +30,6 @@ ohne Modalfenster.
 6. Inhaltselement **MM Interactive – Imagemap** (Gruppe „Plugins“) auf einer Seite
    einfügen und die Imagemap auswählen.
 
-## Backend-Modul: eigener Bereich „Mikelmade“
-
-Das Modul hängt nicht mehr unter „Inhalt“, sondern in einem eigenen
-Hauptmodul **Mikelmade** (Kennung `mikelmade`, Icon:
-`Resources/Public/Icons/mikelmade.svg`); das Imagemap-Modul ist dessen
-Untermodul `mikelmade_mminteractive` (Pfad `/module/mikelmade/mminteractive`).
-Weitere Mikelmade-Erweiterungen können sich mit `'parent' => 'mikelmade'`
-in dieselbe Gruppe einhängen. Das Hauptmodul gibt den Seitenbaum an seine
-Untermodule weiter (`@typo3/backend/tree/page-tree-element`), das Modul
-arbeitet also weiterhin mit der im Seitenbaum gewählten Seite.
-
 ## Löschen
 
 In der Modulübersicht löscht **Löschen** (mit Sicherheitsabfrage) die Imagemap
@@ -52,37 +41,10 @@ In der Modulübersicht löscht **Löschen** (mit Sicherheitsabfrage) die Imagema
 
 alles aus `fileadmin/mminteractive`. Das gilt nur für Bilder, die über diesen
 Editor hochgeladen wurden (eindeutige Dateinamen, nicht mit anderen Imagemaps
-geteilt) – andere Dateien im Ordner bleiben unberührt. Die Löschung ist wie bei
-TYPO3-Formularen per Formular-Token abgesichert und erfordert Bearbeitungsrecht
-auf die Seite sowie die Tabelle „Imagemap“.
+geteilt) – andere Dateien im Ordner bleiben unberührt.
 
 Es gibt **keinen Sichtbarkeits-Status** (kein Verbergen/Zeitsteuerung) – eine
 nicht mehr benötigte Imagemap wird gelöscht statt versteckt.
-
-## Speicherung
-
-- **Eigene Datenstruktur:** Bild und Bereiche liegen als ein JSON-Dokument in der
-  Spalte `areas` des Imagemap-Datensatzes (keine Kind-Tabelle, keine
-  FAL-Relationen): `{"image": {"file","width","height"}, "areas": [...]}`.
-- **Bilder** (Hauptbild und Hintergrundbilder) werden über einen eigenen
-  Upload-Endpunkt in **`fileadmin/mminteractive`** abgelegt (Ordner wird bei Bedarf
-  angelegt). Geschrieben wird über die FAL-Speicher-API: Ordnerrechte,
-  Dateiendungs-Regeln und Namensbereinigung von TYPO3 gelten. Erlaubt sind
-  jpg, jpeg, png, gif, webp (max. 20 MB, der Inhalt muss zur Endung passen).
-  Im JSON steht nur die Referenz (`1:/mminteractive/name.png`).
-- Nicht-Admins brauchen Schreibrechte auf den Ordner (Dateimount), das Modul
-  „Imagemaps“, die Tabelle „Imagemap“ und Seitenrechte. Löschen erfordert
-  zusätzlich Bearbeitungsrecht auf die jeweilige Seite.
-- Das **Thumbnail** in der Übersicht wird über die reguläre FAL-Bildbearbeitung
-  (zugeschnittene Vorschau) aus dem Hauptbild erzeugt.
-
-## Link-Dialog
-
-Das Link-Feld ist ein **echtes TYPO3-Link-Feld** (FormEngine), das der Editor in das
-Panel des gewählten Bereichs einbettet; der Dialog ist also der Standard-TYPO3-
-Link-Browser. Falls sich das Feld in einer TYPO3-Version nicht rendern lässt, zeigt
-der Editor stattdessen ein Textfeld (`t3://page?uid=12`, `https://…`, `mailto:…`).
-Das Formular bleibt in jedem Fall benutzbar.
 
 ## Frontend
 
@@ -103,9 +65,6 @@ Reines SVG + CSS (`:hover`/`:active`), kein JavaScript nötig, **responsive**
 composer require mikelmade/mminteractive
 ```
 
-`composer dump-autoload`, Datenbankschema abgleichen (Wartung → Analyze Database
-Structure bzw. `typo3 database:updateschema`), Caches leeren.
-
 ## Bekannte TYPO3-14-Falle: Content-Security-Policy blockiert Inline-Styles
 
 Rahmen, Rahmenfarbe, Hintergrundfarbe usw. werden je Bereich über ein
@@ -115,10 +74,6 @@ Ist auf der Website eine nonce-basierte Content-Security-Policy für
 `style-src` aktiv, blockiert der Browser dieses `<style>`-Element ohne
 gültiges `nonce`-Attribut lautlos – SVG-Form und Link funktionieren dann
 weiterhin (nicht von `style-src` betroffen), nur Rahmen/Farbe fehlen.
-**Behoben:** Der ViewHelper fragt jetzt das TYPO3-CSP-Nonce aus dem Request
-ab (`$request->getAttribute('nonce')`) und setzt es als `nonce="…"` am
-`<style>`-Tag, wenn eine Policy das verlangt. Auf Seiten ohne CSP oder mit
-permissivem `style-src` ändert sich nichts.
 
 ## Drehung
 
@@ -233,23 +188,7 @@ abgebildet werden können. Das ist unproblematisch, weil der Text in einen
 CSS-Kontext (`<style>`) eingebettet wird, nicht in HTML – die
 Markup-Injection-Risiken des Tooltip-Textes gelten hier nicht.
 
-**Wichtig zu wissen:** Der Inhalt eines
-`<style>`-Elements ist für den Browser reiner Text bis zum ersten
-wörtlichen `</style` – ließe man das durch, könnte darüber das Element
-vorzeitig beendet und beliebiges HTML/Skript angehängt werden. Dieses
-eine Muster (sowie, als zusätzliche Vorsichtsmaßnahme, die inzwischen in
-Browsern wirkungslosen alten CSS-Skript-Vektoren `expression()` und
-`javascript:`) wird beim Rendern entfernt; alles andere bleibt
-unverändert erhalten.
-
-Ersetzt das bisherige, jetzt entfernte Feld „CSS-Klasse" (wurde nicht
-benötigt).
-
 ## Tooltip-Text im kleinen Rich-Text-Editor
-
-Der Tooltip-Text wird nicht mehr über das Feld „Titel / Tooltip" gepflegt
-(das gibt es nicht mehr) – statt dessen gibt es im Tooltip-Abschnitt ein
-kleines, eingebettetes Rich-Text-Feld mit einer schlanken Werkzeugleiste:
 
 - **Absatzformat:** Normal oder Überschrift H1–H4
 - **Schriftart:** Auswahl aus gängigen Schriftarten (Arial, Georgia, Times
